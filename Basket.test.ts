@@ -42,4 +42,8 @@ describe("Kata potter", () => {
         const basket = new Basket([BOOK_1, BOOK_1, BOOK_3]);
         expect(basket.calculatePrice()).toEqual(23.2);
     })
+    test('The amount cart must be 51.20€ when it contains complex basket with multiple copies', () => {
+        const basket = new Basket([BOOK_1, BOOK_1, BOOK_2, BOOK_2, BOOK_3, BOOK_3, BOOK_4, BOOK_5]);
+        expect(basket.calculatePrice()).toEqual(51.20);
+    });
 })

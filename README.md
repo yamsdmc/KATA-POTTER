@@ -4,14 +4,15 @@ Katapotter est un kata de programmation basé sur la série de livres Harry Pott
 
 ## Installation
 
-Pour installer le package, assurez-vous d'avoir Node.js et pnpm installés sur votre machine. Ensuite, exécutez la commande suivante :
+Pour installer le package, assurez-vous d'avoir Node.js et pnpm installés sur votre machine. 
+
+Ensuite, exécutez la commande suivante :
 
 ```bash
 pnpm install
 ```
 
 ## Tests
-Pour lancer les tests et vérifier le bon fonctionnement de votre code, utilisez la commande suivante :
 
 ```bash
 pnpm test
