@@ -1,4 +1,4 @@
-import { Book } from "./Book";
+import {Book} from "./Book";
 
 const FIVE_PERCENT_COEFFICIENT = 0.95;
 const TEN_PERCENT_COEFFICIENT = 0.90;
@@ -8,12 +8,6 @@ const STANDARD_PRICE = 8;
 
 export class Basket {
     private readonly books: Book[]
-    private readonly discount: Record<number, number> = {
-        2: FIVE_PERCENT_COEFFICIENT,
-        3: TEN_PERCENT_COEFFICIENT,
-        4: TWENTY_PERCENT_COEFFICIENT,
-        5: TWENTY_FIVE_PERCENT_COEFFICIENT
-    }
 
     constructor(books: Book[] = []) {
         this.books = books;
@@ -24,6 +18,7 @@ export class Basket {
 
         return groups.reduce(this.calculateGroupPrice.bind(this), 0);
     }
+
     private calculateGroupPrice(total: number, group: Book[]): number {
         const discount = this.getDiscount(group.length);
         return total + (group.length * STANDARD_PRICE * discount);
@@ -51,7 +46,13 @@ export class Basket {
 
 
     private getDiscount(uniqueBookNumber: number) {
+        const discount: Record<number, number> = {
+            2: FIVE_PERCENT_COEFFICIENT,
+            3: TEN_PERCENT_COEFFICIENT,
+            4: TWENTY_PERCENT_COEFFICIENT,
+            5: TWENTY_FIVE_PERCENT_COEFFICIENT
+        }
         const NO_DISCOUNT = 1;
-        return this.discount[uniqueBookNumber] || NO_DISCOUNT
+        return discount[uniqueBookNumber] || NO_DISCOUNT
     }
 }
